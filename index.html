@@ -13,8 +13,212 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        /* Custom Variables */
+        :root {
+            --primary-color: #8AA682;
+            --primary-dark: #7a9572;
+            --bg-light: #FDFCF9;
+            --bg-soft-green: #F8FAF7;
+            --text-dark: #1A1A1A;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Typography Helpers */
+        .tracking-wider { letter-spacing: 0.1em; }
+        .tracking-widest { letter-spacing: 0.3em; }
+        .max-w-700 { 
+            max-width: 700px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .py-100 { padding-top: 100px; padding-bottom: 100px; }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: transparent;
+            z-index: 1030;
+        }
+
+        .nav-scrolled {
+            background-color: white !important;
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #4b5563 !important;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .bg-soft-green {
+            background-color: rgba(138, 166, 130, 0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 60%, transparent 100%);
+        }
+
+        /* Services */
+        .img-wrapper {
+            position: relative;
+            height: 250px;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .icon-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* About Section */
+        .bg-light-green {
+            background-color: var(--bg-soft-green);
+        }
+
+        .main-about-img {
+            height: 600px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            max-width: 250px;
+            z-index: 2;
+        }
+
+        .check-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* FAQ Styling */
+        .accordion-item {
+            border: none;
+            margin-bottom: 1rem;
+            border-radius: 1rem !important;
+            overflow: hidden;
+            background-color: var(--bg-soft-green);
+        }
+        
+        .accordion-button {
+            font-weight: 600;
+            color: var(--text-dark);
+            background-color: var(--bg-soft-green);
+            padding: 1.5rem;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: var(--bg-soft-green);
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(138, 166, 130, 0.1);
+        }
+
+        /* Helpers */
+        .text-primary { color: var(--primary-color) !important; }
+        .bg-primary { background-color: var(--primary-color) !important; }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .experience-badge {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                margin-top: 2rem;
+                max-width: 100%;
+            }
+            .hero-section { text-align: center; }
+            .hero-overlay {
+                background: rgba(255,255,255,0.85);
+            }
+        }
+    </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
 
@@ -33,12 +237,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#welcome-quote">Welcome</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
                 </ul>
-                <button class="btn btn-primary rounded-pill px-4 py-2 fw-semibold shadow-sm">Book Now</button>
+                <!-- Replaced Book Now with Call Us -->
+                <a href="tel:+15550123456" class="btn btn-primary rounded-pill px-4 py-2 fw-semibold shadow-sm">Call Us</a>
             </div>
         </div>
     </nav>
@@ -53,31 +257,10 @@
                     <h1 class="display-1 fw-bold mb-4">Recover Faster, <br> <span class="text-primary">Live Better.</span></h1>
                     <p class="lead text-secondary mb-5 pe-lg-5">Personalized physical therapy and holistic wellness programs designed to help you move freely and pain-free.</p>
                     <div class="d-flex flex-column flex-sm-row gap-3">
-                        <a href="#contact" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-lg">Start Your Recovery</a>
+                        <a href="tel:+15550123456" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-lg">Call to Book</a>
                         <a href="#services" class="btn btn-outline-dark btn-lg rounded-pill px-5 py-3">Explore Services</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Welcome Quote Section -->
-    <section id="welcome-quote" class="py-100 bg-white border-bottom">
-        <div class="container text-center max-w-700">
-            <div class="mb-4">
-                <svg width="60" height="60" viewBox="0 0 100 100" class="mx-auto text-primary">
-                    <circle cx="50" cy="35" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="50" cy="65" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="35" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="65" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
-                </svg>
-            </div>
-            <p class="text-uppercase tracking-widest fw-bold text-secondary small mb-5">Welcome to Ikonic Aesthetic</p>
-            <h2 class="display-5 serif lh-base text-dark mb-5 px-lg-4">
-                Targeted deep tissue and remedial massage can help to relieve tightness and tension in the body, improve circulation and lymph flow and act as a natural analgesic to pain.
-            </h2>
-            <div class="mt-4">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Signature_placeholder.png" alt="Signature" class="signature-img">
             </div>
         </div>
     </section>
@@ -98,7 +281,6 @@
                         </div>
                         <h3 class="h4 fw-bold">Manual Therapy</h3>
                         <p class="text-secondary">Expert hands-on techniques for pain relief.</p>
-                        <a href="#" class="text-primary fw-bold text-decoration-none">Learn More →</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -109,7 +291,6 @@
                         </div>
                         <h3 class="h4 fw-bold">Sports Recovery</h3>
                         <p class="text-secondary">Speed up recovery and prevent injuries.</p>
-                        <a href="#" class="text-primary fw-bold text-decoration-none">Learn More →</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -120,7 +301,6 @@
                         </div>
                         <h3 class="h4 fw-bold">Post-Op Rehab</h3>
                         <p class="text-secondary">Optimizing your post-surgery recovery.</p>
-                        <a href="#" class="text-primary fw-bold text-decoration-none">Learn More →</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -131,77 +311,207 @@
                         </div>
                         <h3 class="h4 fw-bold">Massage Therapy</h3>
                         <p class="text-secondary">Reduce stress and muscle tension.</p>
-                        <a href="#" class="text-primary fw-bold text-decoration-none">Learn More →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-100 bg-light-green">
+    
+
+
+<!-- Meet the Expert -->
+    <section id="expert" class="py-100 bg-white">
         <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6 position-relative">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" class="img-fluid rounded-4 shadow-lg main-about-img" alt="Clinic">
-                    </div>
-                    <div class="experience-badge shadow-xl">
-                        <div class="text-primary fw-bold display-5">15+</div>
-                        <div class="text-dark fw-bold h5 mb-0">Years of Clinical Experience</div>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800" alt="Specialist" class="img-fluid rounded-5 shadow-lg">
                 </div>
-                <div class="col-lg-6 ps-lg-5">
-                    <h2 class="display-4 fw-bold mb-4">A Holistic Approach to <br><span class="text-primary">Physical Wellbeing</span></h2>
-                    <p class="fs-5 text-secondary mb-5">We believe in addressing the root cause of pain, not just the symptoms.</p>
-                    <div class="d-flex gap-4 mb-4">
-                        <div class="check-icon">✓</div>
-                        <div>
-                            <h4 class="fw-bold mb-1">Personalized Care Plans</h4>
-                            <p class="text-secondary mb-0">Custom paths for every patient.</p>
+                <div class="col-lg-6 offset-lg-1">
+                    <span class="text-primary fw-bold text-uppercase tracking-widest small">The Hands Behind the Care</span>
+                    <h2 class="display-4 fw-bold mt-3 mb-4 serif">Meet Dr. Sarah Mitchell</h2>
+                    <p class="lead text-secondary mb-4">With over 12 years of experience in manual therapy and sports rehabilitation, Sarah specializes in helping patients return to their peak performance.</p>
+                    <p class="text-secondary mb-5">Her approach combines clinical excellence with a deep understanding of human movement, ensuring every patient receives a plan that fits their unique lifestyle.</p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <h5 class="fw-bold mb-0">Education</h5>
+                            <p class="small text-secondary">Doctor of Physical Therapy (DPT)</p>
+                        </div>
+                        <div class="col-6">
+                            <h5 class="fw-bold mb-0">Certification</h5>
+                            <p class="small text-secondary">Board Certified Orthopedic Specialist</p>
                         </div>
                     </div>
-                    <div class="d-flex gap-4 mb-5">
-                        <div class="check-icon">✓</div>
-                        <div>
-                            <h4 class="fw-bold mb-1">Modern Technology</h4>
-                            <p class="text-secondary mb-0">The latest in recovery tech.</p>
-                        </div>
-                    </div>
-                    <button class="btn btn-dark btn-lg rounded-pill px-5">Our Philosophy</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-100">
-        <div class="container">
-            <div class="contact-card bg-primary text-white p-4 p-md-5 rounded-5 shadow-lg">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6">
-                        <h2 class="display-3 fw-bold mb-4 serif">Ready to Feel <br> Better Again?</h2>
-                        <p class="fs-5 opacity-75 mb-5">Schedule your initial consultation today.</p>
-                        <div class="d-grid gap-4">
-                            <div>📍 123 Wellness Way, CA 90210</div>
-                            <div>📞 +1 (555) 012-3456</div>
-                            <div>📧 hello@ikonic.aesthetic</div>
+    <!-- Conditions We Treat -->
+    <section class="py-100 bg-light-green">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-5 serif">Conditions We Treat</h2>
+            <div class="max-w-700 mx-auto">
+                <span class="condition-tag">Back & Neck Pain</span>
+                <span class="condition-tag">Sports Injuries</span>
+                <span class="condition-tag">Sciatica</span>
+                <span class="condition-tag">Post-Surgical Rehab</span>
+                <span class="condition-tag">Arthritis Management</span>
+                <span class="condition-tag">Shoulder Impingement</span>
+                <span class="condition-tag">Chronic Pain</span>
+                <span class="condition-tag">Tendonitis</span>
+                <span class="condition-tag">Ligament Tears</span>
+                <span class="condition-tag">Postural Correction</span>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Location & Hours -->
+    <section id="location" class="py-100">
+    <div class="container">
+        <div class="row g-0 rounded-5 overflow-hidden shadow-lg">
+            <!-- Map Side -->
+            <div class="col-lg-7">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.733248043701!2d-118.40110912344558!3d34.050720417783935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bb1e15155555%3A0xef7a0d6b633f878b!2sBeverly%20Hills%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                    width="100%" height="100%" style="border:0; min-height: 450px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <!-- Info Side -->
+            <div class="col-lg-5">
+                <div class="info-box h-100 d-flex flex-column justify-content-center">
+                    <h3 class="serif mb-4 text-white">Visit Our Studio</h3>
+                    <p class="mb-5" style="color: #ccc;">123 Wellness Way, Suite 100<br>Beverly Hills, CA 90210</p>
+                    
+                    <h5 class="serif mb-3 text-white">Opening Hours</h5>
+                    <div class="opening-hours mb-5">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span style="color: #aaa;">Mon — Fri</span>
+                            <span class="fw-bold text-white">8:00 AM – 7:00 PM</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span style="color: #aaa;">Saturday</span>
+                            <span class="fw-bold text-white">9:00 AM – 2:00 PM</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span style="color: #aaa;">Sunday</span>
+                            <span class="fw-bold text-white">Closed</span>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="bg-white p-4 p-md-5 rounded-4 text-dark shadow-sm">
-                            <form>
-                                <div class="mb-4">
-                                    <input type="text" class="form-control form-control-lg bg-light border-0" placeholder="Full Name">
+                    
+                    <a href="tel:+15550123456" class="btn btn-primary btn-lg rounded-pill w-100 py-3 fw-bold">Call to Schedule</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+    <section id="testimonials" class="py-100 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold serif">Patient Stories</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card shadow-sm">
+                        <div class="star-rating">★★★★★</div>
+                        <p class="text-secondary italic">"After months of chronic back pain, Sarah's treatment plan changed everything. I'm back to running without any discomfort. Truly the best in the city!"</p>
+                        <hr class="my-4 opacity-25">
+                        <h6 class="fw-bold mb-0">James Thompson</h6>
+                        <small class="text-muted">Marathon Runner</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card shadow-sm">
+                        <div class="star-rating">★★★★★</div>
+                        <p class="text-secondary italic">"The professional atmosphere and clinical expertise at Ikonic are unmatched. They don't just treat the pain; they explain why it's happening."</p>
+                        <hr class="my-4 opacity-25">
+                        <h6 class="fw-bold mb-0">Elena Rodriguez</h6>
+                        <small class="text-muted">Yoga Instructor</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card shadow-sm">
+                        <div class="star-rating">★★★★★</div>
+                        <p class="text-secondary italic">"Highly recommend for post-op recovery. The team is patient, knowledgeable, and the facility is incredibly clean and modern."</p>
+                        <hr class="my-4 opacity-25">
+                        <h6 class="fw-bold mb-0">Robert Chen</h6>
+                        <small class="text-muted">Tech Executive</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- FAQ Section (Replaced Contact Form) -->
+    <section id="faq" class="py-100 bg-white">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h2 class="display-4 fw-bold mb-4 serif">Common <br><span class="text-primary">Questions</span></h2>
+                    <p class="fs-5 text-secondary mb-5">Everything you need to know about starting your wellness journey with us.</p>
+                    <div class="p-4 bg-soft-green rounded-4">
+                        <h5 class="fw-bold mb-3">Still have questions?</h5>
+                        <p class="text-secondary mb-4">We are here to help you understand the best treatment path.</p>
+                        <a href="tel:+15550123456" class="btn btn-primary rounded-pill px-4">Call Our Experts</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    What should I expect during my first visit?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Your first session involves a comprehensive assessment where we discuss your medical history, current pain points, and lifestyle goals. We will perform movement tests to create a personalized treatment plan tailored specifically to you.
                                 </div>
-                                <div class="mb-4">
-                                    <input type="email" class="form-control form-control-lg bg-light border-0" placeholder="Email">
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Do I need a doctor's referral to book?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    In most cases, you do not need a referral to start physiotherapy. However, some insurance providers may require one for reimbursement. We recommend checking with your specific provider.
                                 </div>
-                                <div class="mb-4">
-                                    <textarea class="form-control form-control-lg bg-light border-0" rows="4" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    How many sessions will I need?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    This depends entirely on your condition and goals. After your initial assessment, your therapist will provide a projected timeline. Some acute issues resolve in 2-3 sessions, while chronic conditions may require longer-term care.
                                 </div>
-                                <button class="btn btn-primary btn-lg w-100 rounded-pill py-3 fw-bold">Book Now</button>
-                            </form>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    What should I wear to my appointment?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Please wear comfortable, loose-fitting clothing that allows you to move easily. If we are treating a lower limb injury, bringing a pair of shorts is recommended.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
