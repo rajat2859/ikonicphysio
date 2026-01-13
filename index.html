@@ -1,548 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ikonic Aesthetic - Modern Physiotherapy & Wellness</title>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ikonic Aesthetic | Modern Physiotherapy & Wellness</title>
+    <meta
+      name="description"
+      content="Personalized physical therapy and holistic wellness in Beverly Hills. Recover faster and live better with Dr. Sarah Mitchell's bespoke manual therapy protocols."
+    />
+
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Custom Variables */
-        :root {
-            --primary-color: #8AA682;
-            --primary-dark: #7a9572;
-            --bg-light: #FDFCF9;
-            --bg-soft-green: #F8FAF7;
-            --text-dark: #1A1A1A;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
 
-        /* Base Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#navbar">
+    <!-- ========== NAVIGATION ========== -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top py-3">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/assets/image/I_logo.png"
+            alt="Ikonic Aesthetics"
+            height="60"
+            class="d-inline-block align-text-top"
+          />
+        </a>
 
-        h1, h2, h3, h4, .serif {
-            font-family: 'Playfair Display', serif;
-        }
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        .transition-all {
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* Typography Helpers */
-        .tracking-wider { letter-spacing: 0.1em; }
-        .tracking-widest { letter-spacing: 0.3em; }
-        .max-w-700 { 
-            max-width: 700px; 
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .py-100 { padding-top: 100px; padding-bottom: 100px; }
-
-        /* Navbar Styling */
-        .navbar {
-            background-color: transparent;
-            z-index: 1030;
-        }
-
-        .nav-scrolled {
-            background-color: white !important;
-            padding-top: 0.5rem !important;
-            padding-bottom: 0.5rem !important;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            color: #4b5563 !important;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            border-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .bg-soft-green {
-            background-color: rgba(138, 166, 130, 0.1);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            padding-top: 80px;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 60%, transparent 100%);
-        }
-
-        /* Services */
-        .img-wrapper {
-            position: relative;
-            height: 250px;
-            border-radius: 1rem;
-            overflow: hidden;
-        }
-
-        .img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .service-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .icon-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: white;
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        /* About Section */
-        .bg-light-green {
-            background-color: var(--bg-soft-green);
-        }
-
-        .main-about-img {
-            height: 600px;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .experience-badge {
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            max-width: 250px;
-            z-index: 2;
-        }
-
-        .check-icon {
-            width: 32px;
-            height: 32px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        /* FAQ Styling */
-        .accordion-item {
-            border: none;
-            margin-bottom: 1rem;
-            border-radius: 1rem !important;
-            overflow: hidden;
-            background-color: var(--bg-soft-green);
-        }
-        
-        .accordion-button {
-            font-weight: 600;
-            color: var(--text-dark);
-            background-color: var(--bg-soft-green);
-            padding: 1.5rem;
-        }
-        
-        .accordion-button:not(.collapsed) {
-            background-color: var(--bg-soft-green);
-            color: var(--primary-color);
-            box-shadow: none;
-        }
-        
-        .accordion-button:focus {
-            box-shadow: none;
-            border-color: rgba(138, 166, 130, 0.1);
-        }
-
-        /* Helpers */
-        .text-primary { color: var(--primary-color) !important; }
-        .bg-primary { background-color: var(--primary-color) !important; }
-
-        /* Responsive adjustments */
-        @media (max-width: 991px) {
-            .experience-badge {
-                position: relative;
-                bottom: 0;
-                right: 0;
-                margin-top: 2rem;
-                max-width: 100%;
-            }
-            .hero-section { text-align: center; }
-            .hero-overlay {
-                background: rgba(255,255,255,0.85);
-            }
-        }
-    </style>
-</head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
-
-    <!-- Navbar -->
-    <nav id="navbar" class="navbar navbar-expand-lg fixed-top transition-all py-3">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <div class="logo-icon"></div>
-                <span class="fw-bold fs-4">Ikonic Aesthetic</span>
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-                </ul>
-                <!-- Replaced Book Now with Call Us -->
-                <a href="tel:+15550123456" class="btn btn-primary rounded-pill px-4 py-2 fw-semibold shadow-sm">Call Us</a>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto gap-lg-4">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Expertise</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#process">The Method</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          </ul>
+          <a
+            href="tel:+15550123456"
+            class="btn btn-primary rounded-pill px-4 fw-semibold"
+            >Call to Book</a
+          >
         </div>
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section d-flex align-items-center">
-        <div class="hero-overlay"></div>
-        <div class="container position-relative z-1">
-            <div class="row">
-                <div class="col-lg-7">
-                    <span class="badge rounded-pill bg-soft-green text-primary px-3 py-2 mb-4 text-uppercase fw-bold tracking-wider">Welcome to Ikonic Aesthetic</span>
-                    <h1 class="display-1 fw-bold mb-4">Recover Faster, <br> <span class="text-primary">Live Better.</span></h1>
-                    <p class="lead text-secondary mb-5 pe-lg-5">Personalized physical therapy and holistic wellness programs designed to help you move freely and pain-free.</p>
-                    <div class="d-flex flex-column flex-sm-row gap-3">
-                        <a href="tel:+15550123456" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-lg">Call to Book</a>
-                        <a href="#services" class="btn btn-outline-dark btn-lg rounded-pill px-5 py-3">Explore Services</a>
-                    </div>
-                </div>
+    <!-- ========== HERO ========== -->
+    <section id="home" class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col-lg-7">
+            <span
+              class="badge rounded-pill bg-soft-green text-primary px-3 py-2 mb-4 text-uppercase fw-bold tracking-widest small"
+              >Welcome to Ikonic Aesthetic</span
+            >
+            <h1 class="display-1 fw-bold mb-4">
+              Recover Faster, <br />
+              <span class="text-primary">Live Better.</span>
+            </h1>
+            <p class="lead text-secondary mb-5 fs-4">
+              Bespoke physical therapy and movement coaching designed for
+              high-performance lifestyles.
+            </p>
+            <div
+              class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start"
+            >
+              <a
+                href="tel:+15550123456"
+                class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-lg"
+                >Schedule Assessment</a
+              >
+              <a
+                href="#services"
+                class="btn btn-outline-dark btn-lg rounded-pill px-5 py-3"
+                >View Expertise</a
+              >
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- ========== EXPERTISE ========== -->
     <section id="services" class="py-100 bg-white">
-        <div class="container">
-            <div class="text-center max-w-700 mx-auto mb-5">
-                <h2 class="display-4 fw-bold mb-3">Our Expertise</h2>
-                <p class="text-secondary fs-5">We provide a range of physiotherapy services tailored to your needs.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card group">
-                        <div class="img-wrapper mb-4">
-                            <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&q=80&w=600" alt="Manual Therapy">
-                            <div class="icon-badge">👐</div>
-                        </div>
-                        <h3 class="h4 fw-bold">Manual Therapy</h3>
-                        <p class="text-secondary">Expert hands-on techniques for pain relief.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card group">
-                        <div class="img-wrapper mb-4">
-                            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=600" alt="Sports Recovery">
-                            <div class="icon-badge">🏃</div>
-                        </div>
-                        <h3 class="h4 fw-bold">Sports Recovery</h3>
-                        <p class="text-secondary">Speed up recovery and prevent injuries.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card group">
-                        <div class="img-wrapper mb-4">
-                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600" alt="Post-Op Rehab">
-                            <div class="icon-badge">🏥</div>
-                        </div>
-                        <h3 class="h4 fw-bold">Post-Op Rehab</h3>
-                        <p class="text-secondary">Optimizing your post-surgery recovery.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card group">
-                        <div class="img-wrapper mb-4">
-                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=600" alt="Massage Therapy">
-                            <div class="icon-badge">💆</div>
-                        </div>
-                        <h3 class="h4 fw-bold">Massage Therapy</h3>
-                        <p class="text-secondary">Reduce stress and muscle tension.</p>
-                    </div>
-                </div>
-            </div>
+      <div class="container text-center">
+        <div class="max-w-700 mb-5">
+          <h2 class="display-4 fw-bold mb-3">Clinical Excellence</h2>
+          <p class="text-secondary fs-5">
+            We bridge the gap between medical rehabilitation and elite
+            performance coaching.
+          </p>
         </div>
+        <div class="row g-4 text-start">
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&q=80&w=600"
+                  alt="Manual Therapy"
+                />
+                <div class="icon-badge">👐</div>
+              </div>
+              <h4 class="fw-bold">Manual Therapy</h4>
+              <p class="text-secondary small">
+                Hands-on joint mobilization and soft tissue release to restore
+                pain-free movement.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=600"
+                  alt="Sports Recovery"
+                />
+                <div class="icon-badge">🏃</div>
+              </div>
+              <h4 class="fw-bold">Sports Recovery</h4>
+              <p class="text-secondary small">
+                Injury prevention and performance tuning for athletes of all
+                levels.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600"
+                  alt="Post-Op Rehab"
+                />
+                <div class="icon-badge">🏥</div>
+              </div>
+              <h4 class="fw-bold">Post-Op Rehab</h4>
+              <p class="text-secondary small">
+                Specific protocols to ensure optimal healing and strength after
+                surgical procedures.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=600"
+                  alt="Movement Analysis"
+                />
+                <div class="icon-badge">🎯</div>
+              </div>
+              <h4 class="fw-bold">Movement Analysis</h4>
+              <p class="text-secondary small">
+                Advanced bio-mechanical screening to find and fix the source of
+                chronic pain.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    
-
-
-<!-- Meet the Expert -->
-    <section id="expert" class="py-100 bg-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800" alt="Specialist" class="img-fluid rounded-5 shadow-lg">
-                </div>
-                <div class="col-lg-6 offset-lg-1">
-                    <span class="text-primary fw-bold text-uppercase tracking-widest small">The Hands Behind the Care</span>
-                    <h2 class="display-4 fw-bold mt-3 mb-4 serif">Meet Dr. Sarah Mitchell</h2>
-                    <p class="lead text-secondary mb-4">With over 12 years of experience in manual therapy and sports rehabilitation, Sarah specializes in helping patients return to their peak performance.</p>
-                    <p class="text-secondary mb-5">Her approach combines clinical excellence with a deep understanding of human movement, ensuring every patient receives a plan that fits their unique lifestyle.</p>
-                    <div class="row g-4">
-                        <div class="col-6">
-                            <h5 class="fw-bold mb-0">Education</h5>
-                            <p class="small text-secondary">Doctor of Physical Therapy (DPT)</p>
-                        </div>
-                        <div class="col-6">
-                            <h5 class="fw-bold mb-0">Certification</h5>
-                            <p class="small text-secondary">Board Certified Orthopedic Specialist</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ========== THE METHOD ========== -->
+    <section id="process" class="py-100 bg-soft-green">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span
+            class="text-primary fw-bold text-uppercase tracking-widest small"
+            >Our Methodology</span
+          >
+          <h2 class="display-4 fw-bold serif mt-2">The Ikonic Way</h2>
         </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="process-card text-center">
+              <div class="process-number serif">01</div>
+              <h4 class="fw-bold mb-3">Assessment</h4>
+              <p class="text-secondary">
+                A comprehensive diagnostic of your movement, history, and goals.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card text-center">
+              <div class="process-number serif">02</div>
+              <h4 class="fw-bold mb-3">Protocol</h4>
+              <p class="text-secondary">
+                A custom treatment roadmap that evolves as you get stronger.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card text-center">
+              <div class="process-number serif">03</div>
+              <h4 class="fw-bold mb-3">Sustainability</h4>
+              <p class="text-secondary">
+                Long-term maintenance tools to keep you functioning at your
+                peak.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Conditions We Treat -->
-    <section class="py-100 bg-light-green">
-        <div class="container text-center">
-            <h2 class="display-5 fw-bold mb-5 serif">Conditions We Treat</h2>
-            <div class="max-w-700 mx-auto">
-                <span class="condition-tag">Back & Neck Pain</span>
-                <span class="condition-tag">Sports Injuries</span>
-                <span class="condition-tag">Sciatica</span>
-                <span class="condition-tag">Post-Surgical Rehab</span>
-                <span class="condition-tag">Arthritis Management</span>
-                <span class="condition-tag">Shoulder Impingement</span>
-                <span class="condition-tag">Chronic Pain</span>
-                <span class="condition-tag">Tendonitis</span>
-                <span class="condition-tag">Ligament Tears</span>
-                <span class="condition-tag">Postural Correction</span>
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="py-100 bg-white">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
+            <img
+              src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800"
+              alt="Dr. Sarah Mitchell"
+              class="img-fluid rounded-5 shadow-lg"
+            />
+          </div>
+          <div class="col-lg-6 offset-lg-1">
+            <h2 class="display-4 fw-bold mb-4 serif">Dr. Sarah Mitchell</h2>
+            <p class="lead text-secondary mb-4">
+              DPT, Board Certified Orthopedic Specialist
+            </p>
+            <p class="text-secondary mb-5">
+              With over a decade of experience treating professional athletes
+              and busy executives, Dr. Mitchell combines manual mastery with
+              evidence-based movement science.
+            </p>
+            <div class="row g-4 border-top pt-4">
+              <div class="col-6">
+                <h6 class="fw-bold mb-0">Experience</h6>
+                <p class="small text-secondary">12+ Years Clinical Practice</p>
+              </div>
+              <div class="col-6">
+                <h6 class="fw-bold mb-0">Specialty</h6>
+                <p class="small text-secondary">Complex Sports Injury Rehab</p>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    
+    <!-- ========== TAILORED CARE ========== -->
+    <section class="py-100 bg-soft-green">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h2 class="display-4 fw-bold serif mb-4">Tailored Care For</h2>
+            <div class="d-flex flex-column gap-4">
+              <div class="d-flex gap-3">
+                <div class="check-circle mt-1">✓</div>
+                <div>
+                  <h5 class="fw-bold mb-1">Elite Athletes</h5>
+                  <p class="text-secondary small">
+                    Shaving seconds off recovery time and maximizing output.
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="check-circle mt-1">✓</div>
+                <div>
+                  <h5 class="fw-bold mb-1">Modern Professionals</h5>
+                  <p class="text-secondary small">
+                    Fixing the postural toll of high-stress corporate life.
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="check-circle mt-1">✓</div>
+                <div>
+                  <h5 class="fw-bold mb-1">Health Enthusiasts</h5>
+                  <p class="text-secondary small">
+                    Those seeking longevity and pain-free everyday movement.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 offset-lg-1">
+            <div class="cta-glass-card">
+              <h3 class="serif mb-4">Ready to start?</h3>
+              <p class="text-secondary mb-4">
+                Book a 10-minute complimentary Discovery Call to find out how we
+                can help your specific case.
+              </p>
+              <a
+                href="tel:+15550123456"
+                class="btn btn-primary btn-lg rounded-pill w-100 py-3 shadow-sm"
+                >Book Discovery Call</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Location & Hours -->
-    <section id="location" class="py-100">
-    <div class="container">
+    <!-- ========== CONDITIONS TREATED ========== -->
+    <section class="py-100 bg-white">
+      <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-5 serif">Conditions We Treat</h2>
+        <div class="max-w-700">
+          <span class="condition-tag">Back & Neck Pain</span>
+          <span class="condition-tag">Sports Injuries</span>
+          <span class="condition-tag">Sciatica</span>
+          <span class="condition-tag">Post-Surgical Rehab</span>
+          <span class="condition-tag">Arthritis Management</span>
+          <span class="condition-tag">Chronic Tendonitis</span>
+          <span class="condition-tag">Ligament Tears</span>
+          <span class="condition-tag">Postural Correction</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LOCATION & HOURS ========== -->
+    <section id="location" class="py-5">
+      <div class="container-fluid px-lg-5">
         <div class="row g-0 rounded-5 overflow-hidden shadow-lg">
-            <!-- Map Side -->
-            <div class="col-lg-7">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.733248043701!2d-118.40110912344558!3d34.050720417783935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bb1e15155555%3A0xef7a0d6b633f878b!2sBeverly%20Hills%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                    width="100%" height="100%" style="border:0; min-height: 450px;" allowfullscreen="" loading="lazy"></iframe>
+          <div class="col-lg-7">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.733248043701!2d-118.40110912344558!3d34.050720417783935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bb1e15155555%3A0xef7a0d6b633f878b!2sBeverly%20Hills%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style="border: 0; min-height: 450px"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="col-lg-5">
+            <div class="info-box d-flex flex-column justify-content-center">
+              <h3 class="serif mb-4">Visit Our Studio</h3>
+              <p class="mb-5 opacity-75">
+                123 Wellness Way, Suite 100<br />Beverly Hills, CA 90210
+              </p>
+              <h5 class="serif mb-4">Opening Hours</h5>
+              <div
+                class="d-flex justify-content-between border-bottom border-secondary py-2"
+              >
+                <span>Mon — Fri</span
+                ><span class="fw-bold">8:00 AM – 7:00 PM</span>
+              </div>
+              <div
+                class="d-flex justify-content-between border-bottom border-secondary py-2"
+              >
+                <span>Saturday</span
+                ><span class="fw-bold">9:00 AM – 2:00 PM</span>
+              </div>
+              <div class="d-flex justify-content-between py-2">
+                <span>Sunday</span><span class="fw-bold">Closed</span>
+              </div>
+              <a
+                href="tel:+15550123456"
+                class="btn btn-primary btn-lg rounded-pill mt-5 py-3"
+                >Call to Schedule</a
+              >
             </div>
-            
-            <!-- Info Side -->
-            <div class="col-lg-5">
-                <div class="info-box h-100 d-flex flex-column justify-content-center">
-                    <h3 class="serif mb-4 text-white">Visit Our Studio</h3>
-                    <p class="mb-5" style="color: #ccc;">123 Wellness Way, Suite 100<br>Beverly Hills, CA 90210</p>
-                    
-                    <h5 class="serif mb-3 text-white">Opening Hours</h5>
-                    <div class="opening-hours mb-5">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span style="color: #aaa;">Mon — Fri</span>
-                            <span class="fw-bold text-white">8:00 AM – 7:00 PM</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span style="color: #aaa;">Saturday</span>
-                            <span class="fw-bold text-white">9:00 AM – 2:00 PM</span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span style="color: #aaa;">Sunday</span>
-                            <span class="fw-bold text-white">Closed</span>
-                        </div>
-                    </div>
-                    
-                    <a href="tel:+15550123456" class="btn btn-primary btn-lg rounded-pill w-100 py-3 fw-bold">Call to Schedule</a>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-    <section id="testimonials" class="py-100 bg-white">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold serif">Patient Stories</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="testimonial-card shadow-sm">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-secondary italic">"After months of chronic back pain, Sarah's treatment plan changed everything. I'm back to running without any discomfort. Truly the best in the city!"</p>
-                        <hr class="my-4 opacity-25">
-                        <h6 class="fw-bold mb-0">James Thompson</h6>
-                        <small class="text-muted">Marathon Runner</small>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card shadow-sm">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-secondary italic">"The professional atmosphere and clinical expertise at Ikonic are unmatched. They don't just treat the pain; they explain why it's happening."</p>
-                        <hr class="my-4 opacity-25">
-                        <h6 class="fw-bold mb-0">Elena Rodriguez</h6>
-                        <small class="text-muted">Yoga Instructor</small>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card shadow-sm">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-secondary italic">"Highly recommend for post-op recovery. The team is patient, knowledgeable, and the facility is incredibly clean and modern."</p>
-                        <hr class="my-4 opacity-25">
-                        <h6 class="fw-bold mb-0">Robert Chen</h6>
-                        <small class="text-muted">Tech Executive</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-
-<!-- FAQ Section (Replaced Contact Form) -->
+    <!-- ========== FAQ ========== -->
     <section id="faq" class="py-100 bg-white">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-5">
-                    <h2 class="display-4 fw-bold mb-4 serif">Common <br><span class="text-primary">Questions</span></h2>
-                    <p class="fs-5 text-secondary mb-5">Everything you need to know about starting your wellness journey with us.</p>
-                    <div class="p-4 bg-soft-green rounded-4">
-                        <h5 class="fw-bold mb-3">Still have questions?</h5>
-                        <p class="text-secondary mb-4">We are here to help you understand the best treatment path.</p>
-                        <a href="tel:+15550123456" class="btn btn-primary rounded-pill px-4">Call Our Experts</a>
-                    </div>
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-5">
+            <h2 class="display-4 fw-bold serif">
+              Frequently <span class="text-primary">Asked</span>
+            </h2>
+            <p class="text-secondary mt-4 mb-5">
+              Everything you need to know about starting your recovery journey.
+            </p>
+          </div>
+          <div class="col-lg-7">
+            <div class="accordion" id="faqAcc">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#f1"
+                  >
+                    What happens during the first visit?
+                  </button>
+                </h2>
+                <div
+                  id="f1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#faqAcc"
+                >
+                  <div class="accordion-body text-secondary">
+                    A comprehensive bio-mechanical assessment, movement screen,
+                    and initial treatment plan.
+                  </div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="accordion" id="faqAccordion">
-                        <!-- FAQ Item 1 -->
-                        <div class="accordion-item shadow-sm">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                    What should I expect during my first visit?
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-secondary">
-                                    Your first session involves a comprehensive assessment where we discuss your medical history, current pain points, and lifestyle goals. We will perform movement tests to create a personalized treatment plan tailored specifically to you.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FAQ Item 2 -->
-                        <div class="accordion-item shadow-sm">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    Do I need a doctor's referral to book?
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-secondary">
-                                    In most cases, you do not need a referral to start physiotherapy. However, some insurance providers may require one for reimbursement. We recommend checking with your specific provider.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FAQ Item 3 -->
-                        <div class="accordion-item shadow-sm">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    How many sessions will I need?
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-secondary">
-                                    This depends entirely on your condition and goals. After your initial assessment, your therapist will provide a projected timeline. Some acute issues resolve in 2-3 sessions, while chronic conditions may require longer-term care.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FAQ Item 4 -->
-                        <div class="accordion-item shadow-sm">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                    What should I wear to my appointment?
-                                </button>
-                            </h2>
-                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-secondary">
-                                    Please wear comfortable, loose-fitting clothing that allows you to move easily. If we are treating a lower limb injury, bringing a pair of shorts is recommended.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#f2"
+                  >
+                    Do I need a doctor's referral?
+                  </button>
+                </h2>
+                <div
+                  id="f2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAcc"
+                >
+                  <div class="accordion-body text-secondary">
+                    In California, you have direct access to physiotherapy. No
+                    referral is needed to begin treatment.
+                  </div>
                 </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#f3"
+                  >
+                    What should I wear?
+                  </button>
+                </h2>
+                <div
+                  id="f3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAcc"
+                >
+                  <div class="accordion-body text-secondary">
+                    Comfortable athletic wear that allows for full range of
+                    motion.
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5 text-center">
-        <div class="container">
-            <div class="d-flex justify-content-center align-items-center gap-2 mb-4">
-                <div class="logo-icon bg-primary"></div>
-                <span class="fs-3 fw-bold">Ikonic Aesthetic</span>
-            </div>
-            <p class="text-secondary small mb-0">© 2026 Ikonic Aesthetic. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-dark text-white py-5">
+  <div class="container text-center">
+    <div class="mb-3">
+        <img src="/assets/image/I_logo.png" alt="Ikonic Aesthetics" class="footer-logo">
+    </div>
     
+    <p class="text-secondary small">
+      © 2026 Ikonic Aesthetics. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-        });
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("nav-scrolled");
+        } else {
+          navbar.classList.remove("nav-scrolled");
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
