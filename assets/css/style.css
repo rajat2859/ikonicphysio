@@ -17,15 +17,32 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .serif {
+h1,
+h2,
+h3,
+h4,
+.serif {
     font-family: 'Playfair Display', serif;
 }
 
 /* ========== TYPOGRAPHY & UTILITIES ========== */
-.tracking-wider { letter-spacing: 0.1em; }
-.tracking-widest { letter-spacing: 0.2em; }
-.max-w-700 { max-width: 700px; margin: 0 auto; }
-.py-100 { padding-top: 100px; padding-bottom: 100px; }
+.tracking-wider {
+    letter-spacing: 0.1em;
+}
+
+.tracking-widest {
+    letter-spacing: 0.2em;
+}
+
+.max-w-700 {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.py-100 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
 
 /* ========== BUTTONS & COLORS ========== */
 .btn-primary {
@@ -58,7 +75,7 @@ h1, h2, h3, h4, .serif {
     backdrop-filter: blur(10px);
     padding-top: 0.5rem !important;
     padding-bottom: 0.5rem !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .nav-link {
@@ -67,7 +84,8 @@ h1, h2, h3, h4, .serif {
     opacity: 0.8;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--primary-color) !important;
     opacity: 1;
 }
@@ -120,7 +138,7 @@ h1, h2, h3, h4, .serif {
     background: white;
     padding: 12px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* ========== PROCESS SECTION ========== */
@@ -146,7 +164,7 @@ h1, h2, h3, h4, .serif {
 .process-card:hover {
     background: white;
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
     border-color: rgba(138, 166, 130, 0.1);
 }
 
@@ -188,6 +206,7 @@ h1, h2, h3, h4, .serif {
 .condition-tag:hover {
     background: var(--primary-color);
     color: white;
+    transform: translateY(-3px);
 }
 
 /* ========== LOCATION & INFO BOX ========== */
@@ -224,12 +243,15 @@ h1, h2, h3, h4, .serif {
     .py-100 {
         padding: 60px 0;
     }
+
     .hero-section {
         text-align: center;
     }
+
     .hero-overlay {
         background: rgba(253, 252, 249, 0.95);
     }
+
     .info-box {
         padding: 3rem 2rem;
     }
